@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory</title>
+    <link rel="stylesheet" href="memory.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 id="tittel">Memory</h1>
+    </header>
+    <div class="overlay" id="start-menu">
+        <h2>Velg spill:</h2>
+
+        <h4 class="game-choice" id="game1">4 x 4</h4>
+
+        <h4>Eller</h4>
+
+        <h4 class="game-choice" id="game2">6 x 6</h4>
+    </div>
+
+    <div class="overlay" id="winscreen4x4">
+        <h1>Du vant!</h1>
+        <h4 class="game-choice" id="igjenW">Spill igjen</h4>
+        <h4 class="game-choice tilbake" id="tilbake"> Tilbake til menyen</h4>
+    </div>
+
+    <div class="overlay" id="losescreen4x4">
+        <h1>Du tapte :(</h1>
+        <h4 class="game-choice" id="igjenL">Prøv igjen</h4>
+        <h4 class="game-choice" id="tilbake">Tilbake til menyen</h4>
+    </div>
+
+    <div class="overlay" id="winscreen6x6">
+        <h1>Du vant!</h1>
+        <h4 class="game-choice" id="igjen6x6W">Spill igjen</h4>
+        <h4 class="game-choice tilbake" id="tilbake"> Tilbake til menyen</h4>
+    </div>
+
+    <div class="overlay" id="losescreen6x6">
+        <h1>Du tapte :(</h1>
+        <h4 class="game-choice" id="igjen6x6L">Prøv igjen</h4>
+        <h4 class="game-choice" id="tilbake">Tilbake til menyen</h4>
+    </div>
+    
+    <div class="game-container-4x4" id="gc4x4">
+            <div class="scoreboard">
+                <div class="user">
+                    <h2 class="username">Spiller</h2>
+                    <p id="playerpoints4x4">Antall poeng: 0</p>
+                </div>
+
+                <div class="computer">
+                    <h2 class="username">Datamaskin</h2>
+                    <p id="computerpoints4x4">Antall poeng: 0</p>
+                </div>
+            </div>
+
+        
+            <div class="card-4x4" data-kort="kode">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_kode.png" alt="kode">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="kode">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_kode.png" alt="kode">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="variabel">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_variabel.png" alt="variabel">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="variabel">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_variabel.png" alt="variabel">
+                </div>
+            </div>
+            
+            <div class="card-4x4" data-kort="laptop">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_laptop.png" alt="laptop">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="laptop">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_laptop.png" alt="laptop">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="joystikk">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_joystikk.png" alt="joystikk">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="joystikk">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_joystikk.png" alt="joystikk">
+                </div>
+            </div>
+
+            <div class="card-4x4" data-kort="pikachu">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_pikachu.png" alt="pikachu">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="pikachu">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_pikachu.png" alt="pikachu">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="wifi">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_wifi.png" alt="wifi">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="wifi">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_wifi.png" alt="wifi">
+                </div>
+            </div>
+
+            <div class="card-4x4" data-kort="mus">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_mus.png" alt="mus">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="mus">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_mus.png" alt="mus">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="konsoll">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_konsoll.png" alt="konsoll">
+                </div>
+            </div>
+            <div class="card-4x4" data-kort="konsoll">
+                <div class="card-back card-face">
+                    <img src="/kort_bakside.png" alt="bakside-kort">
+                </div>
+                <div class="card-front card-face">
+                    <img class="card-value" src="/kort_konsoll.png" alt="konsoll">
+                </div>
+            </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="game-container-6x6" id="gc6x6">
+        <div class="scoreboard">
+            <div class="user">
+                <h2 class="username">Spiller</h2>
+                <p id="playerpoints6x6">Antall poeng: 0</p>
+            </div>
+
+            <div class="computer">
+                <h2 class="username">Datamaskin</h2>
+                <p id="computerpoints6x6">Antall poeng: 0</p>
+            </div>
+        </div>
+
+
+
+        <div class="card-6x6" data-kort="kode">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_kode.png" alt="kode">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="kode">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_kode.png" alt="kode">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="variabel">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_variabel.png" alt="variabel">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="variabel">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_variabel.png" alt="variabel">
+            </div>
+        </div>
+        
+        <div class="card-6x6" data-kort="laptop"> 
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_laptop.png" alt="laptop">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="laptop">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_laptop.png" alt="laptop">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="joystikk">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_joystikk.png" alt="joystikk">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="joystikk">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_joystikk.png" alt="joystikk">
+            </div>
+        </div>
+
+        <div class="card-6x6" data-kort="pikachu">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_pikachu.png" alt="pikachu">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="pikachu">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_pikachu.png" alt="pikachu">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="wifi">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_wifi.png" alt="wifi">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="wifi">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_wifi.png" alt="wifi">
+            </div>
+        </div>
+
+        <div class="card-6x6" data-kort="mus">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_mus.png" alt="mus">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="mus">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_mus.png" alt="mus">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="konsoll">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_konsoll.png" alt="konsoll">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="konsoll">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_konsoll.png" alt="konsoll">
+            </div>
+        </div>
+
+        <div class="card-6x6" data-kort="godkjent">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_godkjent.png" alt="godkjent">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="godkjent">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_godkjent.png" alt="godkjent">
+            </div>
+        </div>
+
+        <div class="card-6x6"data-kort="visualstudio">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/visualstudio.png" alt="visual studio">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="visualstudio">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/visualstudio.png" alt="visual studio">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="java">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_java.png" alt="javascript">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="java">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_java.png" alt="javascript">
+            </div>
+        </div>
+        
+        <div class="card-6x6" data-kort="meldinger">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_meldinger.png" alt="meldinger">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="meldinger">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_meldinger.png" alt="meldinger">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="nintendo">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_nintendo.png" alt="nintendo">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="nintendo">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_nintendo.png" alt="kort_nintendo">
+            </div>
+        </div>
+
+        <div class="card-6x6" data-kort="notifikasjon">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_notifikasjon.png" alt="notifikasjon">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="notifikasjon">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_notifikasjon.png" alt="notifikasjon">
+            </div>
+        </div>
+        <div class="card-6x6"data-kort="tv">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_TV.png" alt="TV">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="tv">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_TV.png" alt="TV">
+            </div>
+        </div>
+
+        <div class="card-6x6" data-kort="skrivemaskin">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_skrivemaskin.png" alt="skrivemaskin">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="skrivemaskin">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_skrivemaskin.png" alt="skrivemaskin">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="sjakkbrett">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_sjakkbrett.png" alt="sjakkbrett">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="sjakkbrett">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_sjakkbrett.png" alt="sjakkbrett">
+            </div>
+        </div>
+
+        <div class="card-6x6" data-kort="minecraft">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_minecraft.png" alt="minecraft">
+            </div>
+        </div>
+        <div class="card-6x6" data-kort="minecraft">
+            <div class="card-back card-face">
+                <img src="/kort_bakside.png" alt="bakside-kort">
+            </div>
+            <div class="card-front card-face">
+                <img class="card-value" src="/kort_minecraft.png" alt="minecraft">
+            </div>
+        </div>
+</div>
+<script>//variabler spill valg:
+    var valg4x4 = document.getElementById("game1");
+    var valg6x6 = document.getElementById("game2");
+    //variabel for refresh knapp:
+    var refresh = document.getElementById("tilbake");
+    var refresh2 = document.getElementById("tittel");
+    //variabel for igjen knapper:
+    var igjenL = document.getElementById("igjenL");
+    var igjenW = document.getElementById("igjenW");
+    var igjen6x6L = document.getElementById("igjen6x6L");
+    var igjen6x6W = document.getElementById("igjen6x6W");
+
+    //poeng tellere:
+    var playerPoints = 0;
+    var computerPoints = 0;
+    //variabel for hvor mange par som er funnet:
+    var cardPair = [];
+
+    //lager alle kortene i en array og gir de en eventListner så de blir trykkbare:
+    //spill 4x4:
+    var cards4x4 = Array.from(document.querySelectorAll('.card-4x4'));
+    cards4x4.forEach(card => card.addEventListener('click', flipcard4x4));
+    //spill6x6:
+    var cards6x6 = Array.from(document.querySelectorAll('.card-6x6'));
+    cards6x6.forEach(card => card.addEventListener('click', flipcard6x6));
+    
+
+
+    //variabel som bestemmer om brettet skal være låst eller ikke.
+    var lock = false;
+    
+    //knapp øverst på siden/tittelen og i win/lose screen som refresher siden:
+    refresh.addEventListener('click', function(){
+      location.reload();
+    })
+    refresh2.addEventListener('click', function(){
+      location.reload();
+    })
+    //knapper for å spille igjen:
+    igjenL.addEventListener('click', function(){
+        shuffle4x4();
+        cards4x4.forEach(card => card.addEventListener('click', flipcard4x4));
+        cards4x4.forEach(card => card.classList.remove("hidden"));
+        cards4x4.forEach(card => card.classList.remove("visible"));
+        document.getElementById("winscreen4x4").style.display = "none";
+        document.getElementById("losescreen4x4").style.display = "none";
+        cardPair = [];
+        computerPoints = 0;
+        playerPoints = 0;
+    })
+    igjenW.addEventListener('click', function(){
+        shuffle4x4();
+        cards4x4.forEach(card => card.addEventListener('click', flipcard4x4));
+        cards4x4.forEach(card => card.classList.remove("hidden"));
+        cards4x4.forEach(card => card.classList.remove("visible"));
+        document.getElementById("winscreen4x4").style.display = "none";
+        document.getElementById("losescreen4x4").style.display = "none";
+        cardPair = [];
+        computerPoints = 0;
+        playerPoints = 0;
+    })
+
+    igjen6x6L.addEventListener('click', function(){
+        shuffle6x6();
+        cards6x6.forEach(card => card.addEventListener('click', flipcard6x6));
+        cards6x6.forEach(card => card.classList.remove("hidden"));
+        cards6x6.forEach(card => card.classList.remove("visible"));
+        document.getElementById("winscreen6x6").style.display = "none";
+        document.getElementById("losescreen6x6").style.display = "none";
+        cardPair = [];
+        computerPoints = 0;
+        playerPoints = 0;
+    })
+    igjen6x6W.addEventListener('click', function(){
+        shuffle6x6();
+        cards6x6.forEach(card => card.addEventListener('click', flipcard6x6));
+        cards6x6.forEach(card => card.classList.remove("hidden"));
+        cards6x6.forEach(card => card.classList.remove("visible"));
+        document.getElementById("winscreen6x6").style.display = "none";
+        document.getElementById("losescreen6x6").style.display = "none";
+        cardPair = [];
+        computerPoints = 0;
+        playerPoints = 0;
+    })
+
+    //knapp for valg av spill med 4x4 grid.
+    valg4x4.addEventListener('click', function(){
+      game4x4();
+    })
+    //knapp for valg av spill med 6x6 grid.
+    valg6x6.addEventListener('click', function(){
+      game6x6();
+    })
+    //funksjoner som gjør at overlayen forsvinner når ett spill blir valgt.
+    function game4x4(){
+      document.getElementById("start-menu").style.display = "none";
+      document.getElementById("gc4x4").style.display = "grid";
+      shuffle4x4();
+    }
+    function game6x6(){
+      document.getElementById("start-menu").style.display = "none";
+      document.getElementById("gc6x6").style.display = "grid";
+      shuffle6x6();
+    }
+    
+   
+    //variabler for om ett kort er snudd eller ikke.
+    var flippedcard = false;
+    var firstcard, secondcard;
+
+    //funksjon for å snu kortene.
+    function flipcard4x4(card){
+      if (lock) return;
+        this.classList.add('visible');
+    
+    //tester om ett kort er første eller andre kort.
+        if (!flippedcard) {
+          flippedcard = true;
+          firstcard = this;
+          firstcard.removeEventListener('click', flipcard4x4);
+        } else {
+          flippedcard = false;
+          secondcard = this;
+          console.log(firstcard, secondcard);
+          console.log(firstcard.dataset.kort);
+          console.log(secondcard.dataset.kort);
+          //kjører funksjonen matchCheck
+          matchCheck4x4();
+        } 
+      }
+    //if else test om kortene matcher eller ikke, for 4x4 grid:
+      function matchCheck4x4(){
+        lock = true;
+        if (firstcard.dataset.kort === secondcard.dataset.kort){
+            //gir spiller +1 poeng:
+            playerPoints++;
+            console.log(playerPoints);
+            console.log(cardPair);
+            //samler sammen antall kort som er paret i variabel, som senere blir brukt til å sjekke om spillet er over.
+          this.cardPair.push(firstcard);
+          this.cardPair.push(secondcard);
+    
+        //fjerner muligheten for å trykke på kortet igjen hvis de er paret.
+          firstcard.removeEventListener('click', flipcard4x4);
+          secondcard.removeEventListener('click', flipcard4x4);
+          //tar vekk kortene hvis man finner 2 like.
+          setTimeout(function(){
+          firstcard.classList.add('hidden');
+          secondcard.classList.add('hidden');
+          setTimeout(function(){
+          firstcard.classList.remove('visible');
+          secondcard.classList.remove('visible');
+        }, 1000);
+            //tester om antall snudde kort tilsvarer antall kort i spillet:
+          if (this.cardPair.length === this.cards4x4.length){
+              this.winnerCheck4x4();
+          }
+          //utskrift for spillerenes poeng 4x4:
+    document.getElementById("playerpoints4x4").innerHTML = "Antall poeng: " + playerPoints;
+    document.getElementById("computerpoints4x4").innerHTML = "Antall poeng: " + computerPoints;
+          
+          }, 500);
+          lock = false;  
+
+        } else {
+            //setter timeout så ikke kortene skal snu seg før spilleren rekker å se hva det er bilde av:
+          setTimeout(function(){
+          firstcard.classList.remove('visible');
+          secondcard.classList.remove('visible');
+          firstcard.addEventListener('click', flipcard4x4);
+          secondcard.addEventListener('click', flipcard4x4);
+          }, 1500);
+
+          setTimeout(function(){
+    //spiller av computerens runde:
+      computer4x4();
+    }, 2500);
+      } 
+      
+    }
+    //if test om det er spiller eller datamaskin som vinner spillet.
+    //avhengig av hvem som vinner vil en overlay dukke opp.
+    function winnerCheck4x4(){
+        if (playerPoints > computerPoints){
+        document.getElementById("winscreen4x4").style.display = "flex";
+        } else {
+            document.getElementById("losescreen4x4").style.display = "flex";
+        }
+    }    
+    
+    
+
+
+
+
+//kode for 6x6 spill / den er i utgangspunktet lik 4x4 grid, men endret navn til 6x6 på funksjonene
+//for å skille på spillene.
+
+    function flipcard6x6(card){
+    
+    if (lock) return;
+      this.classList.add('visible');
+  
+  
+      if (!flippedcard) {
+        flippedcard =true;
+        firstcard = this;
+        firstcard.removeEventListener('click', flipcard6x6);
+      } else {
+        flippedcard = false;
+        secondcard = this;
+        console.log(firstcard, secondcard);
+        console.log(firstcard.dataset.kort);
+        console.log(secondcard.dataset.kort);
+        matchCheck6x6();
+      } 
+    }
+  //if else test om kortene matcher eller ikke for 6x6 grid:
+    function matchCheck6x6(){
+      lock = true;
+      if (firstcard.dataset.kort === secondcard.dataset.kort){
+
+          playerPoints++;
+          console.log(playerPoints);
+          console.log(cardPair);
+        this.cardPair.push(firstcard);
+        this.cardPair.push(secondcard);
+  
+        firstcard.removeEventListener('click', flipcard6x6);
+        secondcard.removeEventListener('click', flipcard6x6);
+        setTimeout(function(){
+          lock = false;
+        firstcard.classList.add('hidden');
+        secondcard.classList.add('hidden');
+        setTimeout(function(){
+        firstcard.classList.remove('visible');
+        secondcard.classList.remove('visible');
+    }, 1000);
+            //tester om antall snudde kort tilsvarer antall kort i spillet:
+        if (this.cardPair.length === this.cards6x6.length){
+            this.winnerCheck6x6();
+        }
+        //poeng utskrift for 6x6:
+    document.getElementById("playerpoints6x6").innerHTML = "Antall poeng: " + playerPoints;
+    document.getElementById("computerpoints6x6").innerHTML = "Antall poeng: " + computerPoints;
+        }, 500);
+
+        lock = false;
+        //gjør at kortene snur om de ikke matcher:
+      } else {
+        setTimeout(function(){
+        firstcard.classList.remove('visible');
+        secondcard.classList.remove('visible');
+        firstcard.addEventListener('click', flipcard6x6);
+        secondcard.addEventListener('click', flipcard6x6);
+        lock = false;
+        }, 1500);
+        setTimeout(function(){
+        //spiller av computerens runde:
+          computer6x6();
+        }, 2500);
+
+    } 
+  }
+  //tester hvem som vinner i grid 6x6:
+  function winnerCheck6x6(){
+      if (playerPoints > computerPoints){
+      document.getElementById("winscreen6x6").style.display = "flex";
+      } else {
+          document.getElementById("losescreen6x6").style.display = "flex";
+      }
+  }    
+    
+    
+    //funksjon som gir kortene tilfeldig posisjon.
+    function shuffle4x4() {
+      cards4x4.forEach(card => {
+        var randomPos4x4 = [Math.floor(Math.random()*cards4x4.length)];
+        card.style.order = randomPos4x4;
+      }) 
+    };
+    
+    function shuffle6x6() {
+      cards6x6.forEach(card => {
+        var randomPos6x6 = [Math.floor(Math.random()*cards6x6.length)];
+        card.style.order = randomPos6x6;
+      }) 
+    };
+
+
+
+
+
+
+//funkjson som lar computer velge kort for 4x4:
+    function computer4x4(){
+        //lock er true så ikke spiller kan trykke på kortene mens datamaskinen spiller.
+        lock = true;
+        //gir datamaskinen ett tilfeldig valg ut ifra arrayen.
+        var computerChoice1 = cards4x4[Math.floor(Math.random()*cards4x4.length)];
+        var computerChoice2 = cards4x4[Math.floor(Math.random()*cards4x4.length)];
+
+        //gjør så ikke datamaskinen kan velge samme kort.
+        if (computerChoice1 === computerChoice2){
+            return computer4x4();
+        }
+        
+        //gjør så ikke datamaskinen kan velge kort som er tatt bort:
+        if (computerChoice1.classList.contains("hidden")){
+            return computer4x4();
+        }
+        if (computerChoice2.classList.contains("hidden")){
+            return computer4x4();
+        }
+
+        console.log(computerChoice1);
+        console.log(computerChoice2);
+        console.log(computerChoice1.dataset.kort);
+        console.log(computerChoice2.dataset.kort);
+        console.log(cardPair);
+        
+        computerChoice1.classList.add('visible');
+        setTimeout(function(){
+        computerChoice2.classList.add('visible');
+    }, 750);
+
+
+
+    setTimeout(function(){
+    if (computerChoice1.dataset.kort === computerChoice2.dataset.kort){
+            computerPoints++;
+            lock = true;
+          this.cardPair.push(computerChoice1);
+          this.cardPair.push(computerChoice2);
+
+          setTimeout(function(){
+          computerChoice1.classList.add('hidden');
+          computerChoice1.classList.remove('visible');
+        }, 750);
+        setTimeout(function(){
+          computerChoice2.classList.add('hidden');
+          computerChoice2.classList.remove('visible');
+        }, 750);
+        //gir datamaskinen ekstra runde hvis den har fått en riktig:
+        setTimeout(function(){
+        computer4x4();
+        }, 2000);
+
+
+    if (this.cardPair.length === this.cards4x4.length){
+              this.winnerCheck4x4();
+        }
+    } else {
+        setTimeout(function(){
+        computerChoice1.classList.remove('visible');
+    }, 750);
+    setTimeout(function(){
+        computerChoice2.classList.remove('visible');
+    }, 750);
+    }
+    //utskrift etter computerens runde:
+    document.getElementById("playerpoints4x4").innerHTML = "Antall poeng: " + playerPoints;
+    document.getElementById("computerpoints4x4").innerHTML = "Antall poeng: " + computerPoints;
+
+    setTimeout(function(){
+    lock = false;
+    }, 1500);    
+
+    }, 1500);
+    
+}       
+
+
+
+function computer6x6(){
+        lock = true;
+        var computerChoice1 = cards6x6[Math.floor(Math.random()*cards6x6.length)];
+        var computerChoice2 = cards6x6[Math.floor(Math.random()*cards6x6.length)];
+
+        //gjør så datamaskine ikke kan trykke 2 ganger på samme kort:
+        if (computerChoice1 === computerChoice2){
+            return computer6x6();
+        }
+        //gjør så datamaskinen ikke kan velge kort som er tatt bort:
+        if (computerChoice1.classList.contains("hidden")){
+            return computer6x6();
+        }
+        if (computerChoice2.classList.contains("hidden")){
+            return computer6x6();
+        }
+
+        console.log(computerChoice1);
+        console.log(computerChoice2);
+        console.log(computerChoice1.dataset.kort);
+        console.log(computerChoice2.dataset.kort);
+        console.log(cardPair);
+        
+        computerChoice1.classList.add('visible');
+        setTimeout(function(){
+        computerChoice2.classList.add('visible');
+    }, 750);
+
+
+
+    setTimeout(function(){
+    if (computerChoice1.dataset.kort === computerChoice2.dataset.kort){
+            computerPoints++;
+            lock = true;
+          this.cardPair.push(computerChoice1);
+          this.cardPair.push(computerChoice2);
+
+          setTimeout(function(){
+          computerChoice1.classList.add('hidden');
+          computerChoice1.classList.remove('visible');
+        }, 750);
+        setTimeout(function(){
+          computerChoice2.classList.add('hidden');
+          computerChoice2.classList.remove('visible');
+        }, 750);
+
+        setTimeout(function(){
+        computer6x6();
+        }, 2000);
+
+    if (this.cardPair.length === this.cards4x4.length){
+              this.winnerCheck4x4();
+        }
+    } else {
+        setTimeout(function(){
+        computerChoice1.classList.remove('visible');
+    }, 750);
+    setTimeout(function(){
+        computerChoice2.classList.remove('visible');
+    }, 750);
+    }
+    //utskrift etter computerens runde:
+    document.getElementById("playerpoints4x4").innerHTML = "Antall poeng: " + playerPoints;
+    document.getElementById("computerpoints4x4").innerHTML = "Antall poeng: " + computerPoints;
+
+    setTimeout(function(){
+    lock = false;
+    }, 1500);    
+
+    }, 1500);
+    
+}       
+
+
+    </script>
+</body>
+</html>
